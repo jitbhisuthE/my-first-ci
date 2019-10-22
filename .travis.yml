@@ -1,6 +1,13 @@
 language: go
 
 go:
-  - "1.13"
-  
-script: go test -v ./...
+  - '1.13'
+
+script: go test -v ./... -race -coverprofile=coverage.txt -covermode=atomic
+
+after_success:
+  - codecov
+
+env:
+  global:
+    secure: Vl695v1IIM3Hizasuxeh/Id9aBv26ep+tUeRh4ffSjvz9cf3Hy9EfPpVXZYQ5Lh1d0LBPPI/xS6t0AIC+g6YjDWdjk+6f2nCX3G0r2l0xcZA05pYkmTZtmZ1inVUAl93/p2vyzWSlnR6dUOBzBaJGvagiwfPhcKBQygHWbWXX8mfpzC4jdmSmKTBRWpc65shTScGLLGregRzLLS0TfkWMBbXUHB0/SSNp7CUzov7oB3erK1ANShml7dS3f8CuroSnl+zu37z51O+7qcMktvomXn0wjkFxOmGr/NG4kJSAAIspgYGwB74n1orh/7N8CnV4qmBmS0wZ6DC8obCQGDy+yymG+V0BAs6CWZTCJsWTS68zNBG1l55YX5jDpDB7SUpdnx6Pt0wZHZbti1KdTfvcJ+xQdoMg5waqMyCNDxuA3Gv4BQrNnANB4LpJaYHGbx9n+6/ZXA5Be+B9Ka3nX7OZ7SOOmhd+9RbzKtOk2W2x8ZqhO1aB/7lkMmhmAz88mDBVMnQ7j98OBbwHZaEBLo6Im3u4qkMgAag5bxL4TsqN4FycV9QEy2OAbsZ6SSDDv9s/wY0NT2gx4EtfROprFNH9royxVQiq0xuq+cwY0OVQxOaAqI1YAvmeswQA8iy0UN+QxbwSeFg2NSWY/Jk/3Sw6DzNl9ssmKu9iysKxNmP/DA=
